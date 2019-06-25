@@ -3,6 +3,7 @@ package com.example.dy.mytime.SchedulePackage;
 import com.example.dy.mytime.DatabasePackage.MyDatabaseController;
 
 public class SortScheduleController extends ScheduleController implements ISortSchedule {
+    public static String message;
 
     public SortScheduleController(){
         super();

@@ -6,6 +6,7 @@ import com.example.dy.mytime.DatabasePackage.MyDatabaseController;
 import com.example.dy.mytime.UserPackage.UserId;
 
 public class AddScheduleController extends ScheduleController implements IAddSchedule {
+    public static String message;
     public AddScheduleController(){
         super();
 

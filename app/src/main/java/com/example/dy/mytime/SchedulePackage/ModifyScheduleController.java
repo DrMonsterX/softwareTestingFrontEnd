@@ -3,6 +3,7 @@ package com.example.dy.mytime.SchedulePackage;
 import com.example.dy.mytime.DatabasePackage.MyDatabaseController;
 
 public class ModifyScheduleController extends ScheduleController implements IModifySchedule {
+    public static String message;
 
     public ModifyScheduleController(){
         super();

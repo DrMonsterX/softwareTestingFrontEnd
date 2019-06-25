@@ -13,6 +13,7 @@ import okhttp3.Response;
 import static android.content.ContentValues.TAG;
 
 public class DeleteScheduleController extends ScheduleController implements IDeleteSchedule {
+    public static String message;
 
     public DeleteScheduleController(){
         super();
@@ -32,6 +33,7 @@ public class DeleteScheduleController extends ScheduleController implements IDel
                     Response response = client.newCall(request).execute();//发送请求
                     String result = response.body().string();
                     Log.d(TAG, "result: "+result);
+                    message = result;
                 } catch (IOException e) {
                     e.printStackTrace();
                 }

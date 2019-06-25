@@ -1,9 +1,5 @@
 package com.example.dy.mytime.SchedulePackage;
 
-import android.database.Cursor;
-
-import com.example.dy.mytime.DatabasePackage.MyDatabaseController;
-import com.example.dy.mytime.TaskPackage.Task;
 import com.example.dy.mytime.UserPackage.UserId;
 
 import java.text.ParseException;

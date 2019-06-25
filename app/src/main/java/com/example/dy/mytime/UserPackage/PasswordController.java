@@ -14,6 +14,7 @@ import okhttp3.Response;
 import static android.content.ContentValues.TAG;
 
 public class PasswordController extends UserController implements IChangePassword {
+    public static String message;
 
     public PasswordController(){
         super();
@@ -22,7 +23,6 @@ public class PasswordController extends UserController implements IChangePasswor
 
     //修改密码
     public void changePassword(String newPassword){
-
 
         //执行修改密码线程
         Thread thread=new PasswordThread(newPassword);

@@ -1,6 +1,5 @@
 package com.example.dy.mytime.UserPackage;
 
-import android.database.Cursor;
 
 import com.example.dy.mytime.CompletenessPackage.CompletenessController;
 import com.example.dy.mytime.CompletenessPackage.getCompleteThread;

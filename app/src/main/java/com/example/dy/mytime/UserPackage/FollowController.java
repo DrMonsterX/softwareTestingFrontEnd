@@ -20,6 +20,7 @@ public class FollowController extends UserController implements IFollow {
 
     public static ArrayList<User> myFollow=new ArrayList<>();
     public static int DFollow_code;
+    public static String message;
 //    private MyDatabaseController controller;
     public FollowController(){
         super();
@@ -56,6 +57,7 @@ public class FollowController extends UserController implements IFollow {
                     Response response = client.newCall(request).execute();//发送请求
                     String result = response.body().string();
                     Log.d(TAG, "result: "+result);
+                    message = result;
                 } catch (IOException e) {
                     e.printStackTrace();
                 }

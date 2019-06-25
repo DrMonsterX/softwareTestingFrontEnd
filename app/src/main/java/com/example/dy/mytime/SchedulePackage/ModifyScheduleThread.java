@@ -34,6 +34,7 @@ public class ModifyScheduleThread extends Thread {
             Response response = client.newCall(request).execute();//发送请求
             String result = response.body().string();
             Log.d(TAG, "result: "+result);
+            ModifyScheduleController.message = result;
 
         } catch (IOException e) {
             e.printStackTrace();
