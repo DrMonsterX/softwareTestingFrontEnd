@@ -23,6 +23,10 @@ public class PasswordController extends UserController implements IChangePasswor
 
     //修改密码
     public void changePassword(String newPassword){
+        if (newPassword == null) {
+            PasswordController.message = "-1";
+            return;
+        }
 
         //执行修改密码线程
         Thread thread=new PasswordThread(newPassword);
