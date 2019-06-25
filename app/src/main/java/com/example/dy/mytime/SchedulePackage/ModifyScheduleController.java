@@ -10,6 +10,10 @@ public class ModifyScheduleController extends ScheduleController implements IMod
     }
     //修改日程
     public void changeSchedule(int scheduleId,String schduleName,String startTime,String stopTime,String remark,int remind){
+        if (schduleName == null || startTime == null || stopTime == null) {
+            message = "-1";
+            return;
+        }
         Thread thread = new ModifyScheduleThread(scheduleId,schduleName,startTime,stopTime,remark,remind);
         thread.start();  //执行线程
         try {

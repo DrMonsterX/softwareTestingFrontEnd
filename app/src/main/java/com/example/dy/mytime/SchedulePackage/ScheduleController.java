@@ -16,6 +16,9 @@ public class ScheduleController implements IGetSchedule {
 
     //获取目标天所有日程
     public ArrayList<Schedule> getScheduleByDay(String date) {
+        if (date == null) {
+            return new ArrayList<>();
+        }
         ArrayList<Schedule> todayScheduleList = new ArrayList<>();
         searchById(UserId.getInstance().getUserId());
         SimpleDateFormat sd = new SimpleDateFormat("yyyy-MM-dd");
@@ -25,6 +28,9 @@ public class ScheduleController implements IGetSchedule {
             aimDate = sd.parse(date).getTime();
         } catch (ParseException e) {
             e.printStackTrace();
+        }
+        if (aimDate == 0) {
+            return new ArrayList<>();
         }
         for(int i=0;i<myScheduleList.size();i++){
             long scheduleTime = 0;
@@ -56,6 +62,9 @@ public class ScheduleController implements IGetSchedule {
 
     //获取目标日schedule个数
     public int getDBPosition(String startTime) {
+        if (startTime == null) {
+            return 0;
+        }
         int count = 0;
         searchById(UserId.getInstance().getUserId());
         SimpleDateFormat sd = new SimpleDateFormat("yyyy-MM-dd");
@@ -65,6 +74,9 @@ public class ScheduleController implements IGetSchedule {
             aimDate = sd.parse(startTime).getTime();
         } catch (ParseException e) {
             e.printStackTrace();
+        }
+        if (aimDate == 0) {
+            return 0;
         }
         for(int i=0;i<myScheduleList.size();i++){
             long scheduleTime = 0;

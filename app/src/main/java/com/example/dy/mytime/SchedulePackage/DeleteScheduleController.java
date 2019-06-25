@@ -24,7 +24,7 @@ public class DeleteScheduleController extends ScheduleController implements IDel
 //        controller.deleteById("Schedule","Schedule_id",scheduleId);
         final  String path="http://119.3.217.215:8081/deleteSchedule?scheduleId=";
 
-        new Thread(new Runnable() {
+        Thread thread=new Thread(new Runnable() {
             @Override
             public void run() {
                 OkHttpClient client = new OkHttpClient();
@@ -38,6 +38,12 @@ public class DeleteScheduleController extends ScheduleController implements IDel
                     e.printStackTrace();
                 }
             }
-        }).start();
+        });
+        thread.start();
+        try {
+            thread.join();//等待子线程执行结束后，主线程继续执行
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 }
