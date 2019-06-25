@@ -13,6 +13,10 @@ public class AddScheduleController extends ScheduleController implements IAddSch
     }
     //添加日程
     public void addSchedule(String scheduleName, String scheduleStartTime, String scheduleStopTime, String scheduleRemark,int scheduleRemind){
+        if (scheduleName == null || scheduleStartTime == null || scheduleStopTime == null){
+            message = "0";
+            return;
+        }
         int userId=UserId.getInstance().getUserId();
         int position=getDBPosition(scheduleStartTime);
         Log.e("schedule",userId+"&position="+position+"&scheduleName="+scheduleName+"&startTime="+scheduleStartTime+"&stopTime="+scheduleStopTime+"&remark="+scheduleRemark+"&remind="+scheduleRemind);
