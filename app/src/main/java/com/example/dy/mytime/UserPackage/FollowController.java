@@ -48,7 +48,7 @@ public class FollowController extends UserController implements IFollow {
     public void followUser(final int userId){
         final  String path="http://119.3.217.215:8081/followUser?myId=";
 
-        new Thread(new Runnable() {
+        Thread thread = new Thread(new Runnable() {
             @Override
             public void run() {
                 OkHttpClient client = new OkHttpClient();
@@ -57,12 +57,18 @@ public class FollowController extends UserController implements IFollow {
                     Response response = client.newCall(request).execute();//发送请求
                     String result = response.body().string();
                     Log.d(TAG, "result: "+result);
-                    message = result;
+                    FollowController.message = result;
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
             }
-        }).start();
+        });
+        thread.start();
+        try {
+            thread.join();
+        }catch (InterruptedException e){
+            e.printStackTrace();
+        }
     }
 
     //取消关注

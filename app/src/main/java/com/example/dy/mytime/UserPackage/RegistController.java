@@ -21,6 +21,9 @@ public class RegistController extends UserController implements IRegist {
 
     //用户注册
     public int register(String name,int iconid,String code) {
+        if (name == null || code == null) {
+            return -1;
+        }
         //执行注册线程
         Thread thread=new RegistTread(name,iconid,code);
         thread.start();

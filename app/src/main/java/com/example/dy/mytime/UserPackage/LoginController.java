@@ -9,7 +9,6 @@ public class LoginController extends UserController implements ILogin {
     }
     //检查用户登录信息
     public int checkLogin(int user_id,String password) {
-
             //执行登录验证线程
             Thread thread=new LoginThread(user_id);
             thread.start();
@@ -22,12 +21,12 @@ public class LoginController extends UserController implements ILogin {
             e.printStackTrace();
         }
 
-
-
-
         if(user==null) {
             //用户ID无效
             return 2;
+        }
+        if (password == null){
+            return 1;
         }
         if(user.getPassword().equals(Integer.toString(password.hashCode())))
         {
